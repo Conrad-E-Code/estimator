@@ -33,33 +33,68 @@ ask you to select specs, similar to buying parts.
 
 I am going to create some objects to represent how the app might work.
 
-Create a repair!
+Create a repair! TICKET
 a repair has one vehicle
 a vehicle has many repairs
 
-Create Customer:
+USER STORIES:
 
+Create Customer:                    cust account is created able to choose from known vehicles.
+{}
+
+customer has_many vehicles
+has_many tickets through vehicles
+                 vehicle is saved to system
 Create Vehicle:
+vehicle has one customer
+has many tickets
+has many notes:
+consider notes and tickets for later
 
-Create Input Object "Ticket"
+CREATE NOTES: Tell us whats wrong? Include any previosu repair work you think will be relevant.
+belong to vehicle
+
+
+Create "Ticket"
+belongs_to vehicle
+
+Create RepairNote
+
+create repair ticket belonging to vehicle
 
 {
-  "vehicle": {
-        "year": "1995",
-        "make": "Ford",
-        "model" : "F-150"
-        "sub-model" : "XLT"
-        "Odometer" : "188999"   
-        "Engine" : "5.8L"
-        "Transmission" : "Automatic"
-        "notes" : ["Transmission rebuilt at 120000"]     
-  }
-  "jobs": ["Repair blown cylinder bead gasket","Fix Parking Break Pedal"]
+  "vehicle_id" : "FOREIGN KEY FROM VEhICLE"
+  "jobs": ["Repair blown cylinder head gasket","Fix Parking Break Pedal"]
   "customer_states": ["exhaust bubbling up through radiator, overpressurized radiator, leading to radiator splitting open.", "Broken cable or Linkage at the pedal,pedal still actuates, but the cable is disconnected", "weird noise coming from the retro meticulator unit, leading to anyone in the vicinity of the open hood to start talking with an accent"]                                                         Symptoms optional
 }
 
+Parts list
 
 Part
+belong to a vehicle?
+belong to a ticket?
+both?
 {
-    "Name":
+    "Name": "Cylinder Head Gasket Set"
+    "Part Number": "Example Part Number"
+    "Description": "Multi layered steel head gasket for left and right side, contains valve stem seals, etc."
+    "Manufacturer": "Smell-Crow"
+    "Category": "Engine"
+    "Price": 60.00
 }
+
+
+
+Creat a customer:
+customer record created
+
+Choose a recent vehicle:
+Choose a new vehicle:
+
+Create vehicle record.belong to customer who created it
+create a repair ticket record.
+tell us whats wrong:
+Customer States:
+
+
+
