@@ -1,0 +1,2 @@
+class VehSpec < ApplicationRecord
+end

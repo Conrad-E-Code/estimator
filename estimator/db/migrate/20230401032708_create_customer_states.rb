@@ -7,3 +7,4 @@ class CreateCustomerStates < ActiveRecord::Migration[7.0]
     end
   end
 end
+# add migration to include concern level?
