@@ -68,20 +68,6 @@ create repair ticket belonging to vehicle
   "customer_states": ["exhaust bubbling up through radiator, overpressurized radiator, leading to radiator splitting open.", "Broken cable or Linkage at the pedal,pedal still actuates, but the cable is disconnected", "weird noise coming from the retro meticulator unit, leading to anyone in the vicinity of the open hood to start talking with an accent"]                                                         Symptoms optional
 }
 
-Parts list
-
-Part
-belong to a vehicle?
-belong to a ticket?
-both?
-{
-    "Name": "Cylinder Head Gasket Set"
-    "Part Number": "Example Part Number"
-    "Description": "Multi layered steel head gasket for left and right side, contains valve stem seals, etc."
-    "Manufacturer": "Smell-Crow"
-    "Category": "Engine"
-    "Price": 60.00
-}
 
 
 
@@ -92,9 +78,73 @@ Choose a recent vehicle:
 Choose a new vehicle:
 
 Create vehicle record.belong to customer who created it
+help me fix it!
 create a repair ticket record.
 tell us whats wrong:
 Customer States:
+customser states record saved with ticket.
 
+API MAGIC to create:
 
+A quiz?
+
+Instructions on how to proceed, 
+Parts List:
+Relevent torque specs:
+
+create models
+Partslist
+  Total price equals sum of all the prices on a part in the parts list.
+  belong to ticket
+  has many parts
+      Parts list
+
+Part
+belong to a vehicle?
+belong to a ticket?
+both?
+{
+    "Name": "Cylinder Head Gasket Set"
+    "Part Number": "Example Part Number"
+    "Description": "Multi layered steel head gasket for left and right side, contains valve stem seals, etc."
+    "Manufacturer": "Val-Chro"
+    "Category": "Engine"
+    "Price": 60.00
+}
+
+Instructions
+  belongs to ticket
+  t.text content
+  t.float :labor hours
+  How will we calculate that?
+
+  Spec Sheet
+    relevant torque spec info 
+class CreateSpecSheets < ActiveRecord::Migration[7.0]
+  def change
+    create_table :spec_sheets do |t|
+      t.integer :ticket_id
+      t.timestamps
+    end
+  end
+end
+
+class CreatePartsLists < ActiveRecord::Migration[7.0]
+  def change
+    create_table :parts_lists do |t|
+      t.integer :ticket_id
+      t.timestamps
+    end
+  end
+end
+
+class CreateInstructions < ActiveRecord::Migration[7.0]
+  def change
+    create_table :instructions do |t|
+      t.integer :ticket_id
+
+      t.timestamps
+    end
+  end
+end
 
