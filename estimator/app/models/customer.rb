@@ -2,6 +2,8 @@ class Customer < ApplicationRecord
     has_many :vehicles
     has_many :tickets, through: :vehicles
 end
+# add validations?
+
 # t.string "type"
 # t.string "year"
 # t.string "make"
